@@ -3,11 +3,11 @@ import { AbstractMesh, TransformNode, Node } from '@babylonjs/core'
 import useMeshes from './useMeshes'
 
 export type MeshTree = {
-  node: TransformNode | AbstractMesh
+  node: TransformNode | AbstractMesh | Node
   children?: MeshTree[]
 }
 
-const getHierarchy = (node: TransformNode | AbstractMesh | Node) => {
+const getHierarchy = (node: TransformNode | AbstractMesh | Node): MeshTree => {
   if (node instanceof TransformNode || node instanceof AbstractMesh) {
     return {
       children: node.getChildren(undefined, true).map((child) => getHierarchy(child)),
