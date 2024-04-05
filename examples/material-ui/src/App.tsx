@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable react/button-has-type */
 import React from 'react'
-import './App.css'
 import { styled } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
