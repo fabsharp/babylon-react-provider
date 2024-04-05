@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
-    "@babylonjs/core": "^6.30.0",
+    "@babylonjs/core": "^7.1.0",
     "@babylonjs/loaders": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

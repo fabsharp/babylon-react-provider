@@ -1038,10 +1038,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@babylonjs/core@^6.30.0":
-  version "6.49.0"
-  resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-6.49.0.tgz#eea3c912a0b30c04e8aac8795181dd1bb81b86bc"
-  integrity sha512-jU/JyqebRqqziNwHLcBYzANrVRd9S55yNZEjejwg2p4I8NRnoBBNgf4wuUVw17UKNHc1v3KD/Vnr5C2+dIWAqQ==
+"@babylonjs/core@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-7.1.0.tgz#075a98712c6691dced81b1a3bb7511fe477002c4"
+  integrity sha512-nz1CmflajMPnjdnwYrj72s4D/Q8IkOW4DBbwMfUNLFSCondfFXS3sZBgHeCAHpimR5n4e27YwvJ66MkQJsSraQ==
 
 "@babylonjs/loaders@^7.1.0":
   version "7.1.0"
