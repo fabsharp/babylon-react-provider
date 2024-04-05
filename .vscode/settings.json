@@ -9,4 +9,7 @@
     "typescript"
   ],
   "eslint.format.enable": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-action.json": "file:///d%3A/src/babylon-react-provider/action.yml"
+  },
 }

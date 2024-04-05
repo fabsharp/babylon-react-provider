@@ -1,7 +1,7 @@
 {
   "name": "babylon-react-provider",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
     "@babylonjs/core": "^6.30.0",
@@ -41,8 +41,6 @@
   },
   "eslintConfig": {
     "extends": [
-      "plugin:storybook/recommended",
-      "plugin:storybook/recommended",
       "plugin:storybook/recommended"
     ]
   },
