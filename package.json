@@ -33,5 +33,8 @@
     "lint": "eslint --ext .ts .",
     "build": "npm run lint && rimraf lib && tsc --project tsconfig.build.json",
     "build:watch": "tsc --project tsconfig.build.json --watch"
+  },
+  "dependencies": {
+    "babylon-react-provider": "^0.0.2"
   }
 }

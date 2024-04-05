@@ -1,1 +1,1 @@
-https://stackblitz.com/github/fabsharp/babylon-react-provider/tree/master/examples/material-ui?file=src%2Fmain.tsx,src%2FApp.tsx
+https://stackblitz.com/github/fabsharp/babylon-react-provider/tree/master/examples/material-ui
