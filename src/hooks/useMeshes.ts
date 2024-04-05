@@ -1,8 +1,8 @@
-import { AbstractMesh } from "@babylonjs/core"
-import { useState, useEffect } from "react"
-import { useScene } from "../providers/SceneProvider"
+import { AbstractMesh } from '@babylonjs/core'
+import { useState, useEffect } from 'react'
+import { useScene } from '../providers/SceneProvider'
 
-export const useMeshes = () => {
+export default function useMeshes() {
   const scene = useScene()
   const [meshes, setMeshes] = useState<Array<AbstractMesh>>([])
   useEffect(() => {
@@ -22,6 +22,6 @@ export const useMeshes = () => {
     return () => {
       setMeshes([])
     }
-  },[])
+  }, [])
   return meshes
 }

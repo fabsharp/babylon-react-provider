@@ -1,3 +1,5 @@
-export * from './BabylonCanvas'
+import BabylonCanvas from './BabylonCanvas'
 
-export * from './FPS'
+import FPS from './FPS'
+
+export { BabylonCanvas, FPS }

@@ -1,9 +1,9 @@
-export * from '../components/BabylonCanvas'
+import BabylonProvider from './BabylonProvider'
 
-export * from './BabylonProvider'
+import CanvasProvider, { useCanvas } from './CanvasProvider'
 
-export * from './CanvasProvider'
+import EngineProvider, { useEngine } from './EngineProvider'
 
-export * from './EngineProvider'
+import SceneProvider, { useScene } from './SceneProvider'
 
-export * from './SceneProvider'
+export { BabylonProvider, CanvasProvider, useCanvas, EngineProvider, useEngine, SceneProvider, useScene }

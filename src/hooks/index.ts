@@ -1,9 +1,11 @@
-export * from './useFPS'
+import useFPS from './useFPS'
 
-export * from './useGLTF'
+import useGLTF from './useGLTF'
 
-export * from './useMesh'
+import useMesh from './useMesh'
 
-export * from './useMeshes'
+import useMeshes from './useMeshes'
 
-export * from './useMeshesTree'
+import useMeshesTree from './useMeshesTree'
+
+export { useFPS, useGLTF, useMesh, useMeshes, useMeshesTree }

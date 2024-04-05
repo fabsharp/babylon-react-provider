@@ -3,13 +3,20 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "airbnb-typescript", "prettier"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "prettier"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["sort-keys-fix", "prettier"],
+  "plugins": [
+    "sort-keys-fix",
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": [
       "error",
@@ -18,12 +25,18 @@
       }
     ],
     "import/extensions": "off",
-    "sort-keys-fix/sort-keys-fix": "error"
+    "sort-keys-fix/sort-keys-fix": "error",
+    "react/require-default-props": "off"
   },
-  "settings" : {
+  "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js",".jsx",".ts",".tsx"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   }

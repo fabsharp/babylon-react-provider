@@ -1,27 +1,45 @@
-import React, { PropsWithRef, ReactElement, ReactNode, Ref, forwardRef, useEffect, useRef } from "react";
-import { useCanvas } from "../providers/CanvasProvider";
-import { useEngine } from "../providers/EngineProvider";
+import React, { ReactNode, useEffect, useRef } from 'react'
+import { useCanvas } from '../providers/CanvasProvider'
+import { useEngine } from '../providers/EngineProvider'
 
+type BabylonCanvasProps = {
+  children?: ReactNode | ReactNode[]
+  /** CSS properties of the container */
+  style?: React.CSSProperties
+}
 
-export default function BabylonCanvas(props : { children?: ReactNode[] | ReactNode, style?: React.CSSProperties}) {
-  const container = useRef<HTMLDivElement>(null);
+/**
+ * Container for the rendering ```<canvas>``` used by babylonJS [Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine#constructor) to render.
+ *
+ * @remarks ```<BabylonProvider>``` require one ```<BabylonCanvas>```
+ * @example
+ * ```
+ * <BabylonProvider>
+ *  <Menu/>
+ *  <BabylonCanvas/>
+ * </BabylonProvider>
+ * ```
+ */
+export default function BabylonCanvas({ children, style }: BabylonCanvasProps) {
+  const container = useRef<HTMLDivElement>(null)
   const engine = useEngine()
   const canvas = useCanvas()
 
-  const containerCSS: React.CSSProperties = props.style ?? {
+  const containerCSS: React.CSSProperties = style ?? {
     height: '100%',
     minHeight: '350px',
     minWidth: '350px',
     position: 'relative',
     width: '100%',
   }
+
   useEffect(() => {
     container.current?.prepend(canvas)
     engine.resize()
   }, [])
   return (
-    <div style={containerCSS} ref={ container }>
-      {props.children}
+    <div style={containerCSS} ref={container}>
+      {children}
     </div>
   )
 }
