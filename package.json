@@ -30,6 +30,9 @@
     "vite": "^4.1.4"
   },
   "scripts": {
+    "preversion": "npm run build",
+    "version": "git add package.json",
+    "postversion": "git push origin && git push origin --tags",
     "lint": "eslint --ext .ts .",
     "build": "npm run lint && rimraf lib && tsc --project tsconfig.build.json",
     "build:watch": "tsc --project tsconfig.build.json --watch"
