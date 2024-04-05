@@ -6,6 +6,8 @@
     "lib"
   ],
   "include": [
-    "src"
+    "src",
+    "examples",
+    "stories"
   ]
 }

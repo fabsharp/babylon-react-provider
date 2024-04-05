@@ -25,13 +25,15 @@ export default function BabylonCanvas({ children, style }: BabylonCanvasProps) {
   const engine = useEngine()
   const canvas = useCanvas()
 
-  const containerCSS: React.CSSProperties = style ?? {
-    height: '100%',
-    minHeight: '350px',
-    minWidth: '350px',
-    position: 'relative',
-    width: '100%',
-  }
+  const containerCSS: React.CSSProperties =
+    style ??
+    {
+      // height: '100%',
+      // minHeight: '350px',
+      // minWidth: '350px',
+      // position: 'relative',
+      // width: '100%',
+    }
 
   useEffect(() => {
     container.current?.prepend(canvas)
