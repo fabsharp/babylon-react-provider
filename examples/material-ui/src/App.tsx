@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
 import { BabylonCanvas, BabylonProvider, FPS } from 'babylon-react-provider'
 
-import { Container } from '@mui/material'
+import { Button, Container } from '@mui/material'
 import LoadGLB from './LoadGLB'
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -14,29 +14,36 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
 }))
+
 function App() {
+  const [mounted, setMounted] = useState(false)
   return (
-    <BabylonProvider>
+    <>
       <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={12} lg={12}>
-            <Item>
-              <BabylonCanvas />
-            </Item>
-          </Grid>
-          <Grid item xs={8}>
-            <Item>
-              <LoadGLB />
-            </Item>
-          </Grid>
-          <Grid item xs={4}>
-            <Item>
-              <FPS />
-            </Item>
-          </Grid>
-        </Grid>
+        {mounted && (
+          <BabylonProvider>
+            <Grid container spacing={2}>
+              <Grid item xs={12} lg={12}>
+                <Item>
+                  <BabylonCanvas />
+                </Item>
+              </Grid>
+              <Grid item xs={8}>
+                <Item>
+                  <LoadGLB />
+                </Item>
+              </Grid>
+              <Grid item xs={4}>
+                <Item>
+                  <FPS />
+                </Item>
+              </Grid>
+            </Grid>
+          </BabylonProvider>
+        )}
       </Container>
-    </BabylonProvider>
+      <Button onClick={() => setMounted(!mounted)}>Unmount</Button>
+    </>
   )
 }
 

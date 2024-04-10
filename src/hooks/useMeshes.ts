@@ -6,10 +6,10 @@ export default function useMeshes() {
   const scene = useScene()
   const [meshes, setMeshes] = useState<Array<AbstractMesh>>([])
   useEffect(() => {
+    if (!scene) {
+      return () => {}
+    }
     setMeshes([...scene.meshes])
-    // scene.onDataLoadedObservable.add(() => {
-    //   setMeshes([...scene.meshes])
-    // })
     scene.onMeshImportedObservable.add(() => {
       setMeshes([...scene.meshes])
     })
@@ -22,6 +22,6 @@ export default function useMeshes() {
     return () => {
       setMeshes([])
     }
-  }, [])
+  }, [scene])
   return meshes
 }

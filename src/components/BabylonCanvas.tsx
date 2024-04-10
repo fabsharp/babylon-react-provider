@@ -37,7 +37,7 @@ export default function BabylonCanvas({ children, style }: BabylonCanvasProps) {
 
   useEffect(() => {
     container.current?.prepend(canvas)
-    engine.resize()
+    engine?.resize()
   }, [])
   return (
     <div style={containerCSS} ref={container}>

@@ -6,6 +6,9 @@ export default function useFPS(threshold?: number) {
   const [fps, setFps] = useState(0)
 
   useEffect(() => {
+    if (!scene) {
+      return () => {}
+    }
     const observer = scene.onAfterRenderObservable.add(() => {
       const newFPS = Math.round(scene.getEngine().getFps())
       if (!threshold || Math.abs(newFPS - fps) > threshold) {
@@ -15,7 +18,7 @@ export default function useFPS(threshold?: number) {
     return () => {
       observer.remove()
     }
-  }, [])
+  }, [scene])
 
   return fps
 }

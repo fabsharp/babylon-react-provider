@@ -1,33 +1,35 @@
-import React, { PropsWithChildren, useEffect, useRef } from 'react'
-import { Scene, SceneOptions } from '@babylonjs/core'
+import React, { PropsWithChildren, useEffect, useState } from 'react'
+import { Engine, Scene, SceneOptions } from '@babylonjs/core'
 import { useEngine } from './EngineProvider'
 
-// @ts-ignore
-const SceneContext = React.createContext<Scene>(null)
+const SceneContext = React.createContext<Scene | undefined>(undefined)
 
 type SceneProviderOptions = {
   sceneOptions?: SceneOptions
 }
 
+const createScene = (engine: Engine, sceneOptions?: SceneOptions) => {
+  const babylonScene = new Scene(engine, sceneOptions)
+  babylonScene.createDefaultCamera(true)
+
+  engine.runRenderLoop(() => {
+    babylonScene.render()
+  })
+  return babylonScene
+}
+
 export default function SceneProvider({ children, sceneOptions }: PropsWithChildren<SceneProviderOptions>) {
   const engine = useEngine()
+  const [scene, setScene] = useState<Scene>()
 
-  const scene = useRef<Scene>(
-    (() => {
-      const babylonScene = new Scene(engine, sceneOptions)
-      babylonScene.createDefaultCamera(true)
-      engine.runRenderLoop(() => {
-        babylonScene.render()
-      })
-      return babylonScene
-    })()
-  )
+  useEffect(() => {
+    if (engine) {
+      setScene(createScene(engine, sceneOptions))
+    }
+    return () => {}
+  }, [engine])
 
-  useEffect(() => () => {
-    scene.current.dispose()
-  })
-
-  return <SceneContext.Provider value={scene.current}>{children}</SceneContext.Provider>
+  return <SceneContext.Provider value={scene}>{children}</SceneContext.Provider>
 }
 
 export const useScene = () => React.useContext(SceneContext)

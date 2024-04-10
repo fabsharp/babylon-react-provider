@@ -9,14 +9,22 @@ export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContai
   const [progressComputable, setProgressComputable] = useState<boolean>()
   const [progressPercent, setProgressPercent] = useState<number>(0)
   const scene = useScene()
+
   useEffect(() => {
-    if (url) {
+    if (url && scene) {
+      let cancel = false
       setLoading(true)
+      if (scene.isDisposed) {
+        return () => {}
+      }
       SceneLoader.LoadAssetContainer(
         url,
         undefined,
         scene,
         (container: AssetContainer) => {
+          if (cancel) {
+            return
+          }
           if (beforeAddAllToScene) {
             beforeAddAllToScene(container)
           }
@@ -31,8 +39,13 @@ export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContai
           }
         }
       )
+
+      return () => {
+        cancel = true
+      }
     }
-  }, [url])
+    return () => {}
+  }, [url, scene])
 
   return { assetContainer, loading, progressComputable, progressPercent }
 }

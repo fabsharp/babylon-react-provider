@@ -14,8 +14,8 @@ export default function TestComponent() {
   const { loading, progressPercent, assetContainer } = useGLTF(
     'https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf',
     () => {
-      scene.createDefaultCameraOrLight(true, true, true)
-      scene.createDefaultEnvironment()
+      scene?.createDefaultCameraOrLight(true, true, true)
+      scene?.createDefaultEnvironment()
     }
   )
   const meshesTree = useMeshesTree()
@@ -25,13 +25,14 @@ export default function TestComponent() {
   useEffect(() => {
     if (assetContainer) {
       const [camera] = assetContainer.cameras
-      scene.activeCamera = camera
-      scene.activeCamera.attachControl()
+      scene!.activeCamera = camera
+      scene!.activeCamera.attachControl()
     }
   }, [assetContainer])
 
   useEffect(() => {
     if (selectedMesh) {
+      // eslint-disable-next-line no-console
       console.log('selected mesh', selectedMesh)
     }
   }, [selectedMesh])
