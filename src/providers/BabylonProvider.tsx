@@ -8,11 +8,13 @@ import SceneProvider from './SceneProvider'
 export type BabylonProviderProps = {
   engineOptions?: EngineOptions
   sceneOptions?: SceneOptions
+  nullEngine?: boolean
 }
 
 export default function BabylonProvider({
   engineOptions,
   sceneOptions,
+  nullEngine,
   children,
 }: PropsWithChildren<BabylonProviderProps>) {
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function BabylonProvider({
   return (
     <div id="babylon-react-provider">
       <CanvasProvider>
-        <EngineProvider engineOptions={engineOptions}>
+        <EngineProvider engineOptions={engineOptions} nullEngine={nullEngine}>
           <SceneProvider sceneOptions={sceneOptions}>{children}</SceneProvider>
         </EngineProvider>
       </CanvasProvider>

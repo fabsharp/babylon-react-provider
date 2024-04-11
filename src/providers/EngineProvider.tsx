@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react'
-import { Engine, EngineOptions } from '@babylonjs/core'
+import { Engine, EngineOptions, NullEngine } from '@babylonjs/core'
 import { useCanvas } from './CanvasProvider'
 
 const EngineContext = React.createContext<Engine | undefined>(undefined)
@@ -7,6 +7,7 @@ const EngineContext = React.createContext<Engine | undefined>(undefined)
 type EngineProviderProps = {
   antialias?: boolean
   engineOptions?: EngineOptions
+  nullEngine?: boolean
 }
 
 const createEngine = (canvas: HTMLCanvasElement, { antialias, engineOptions }: EngineProviderProps) => {
@@ -14,13 +15,22 @@ const createEngine = (canvas: HTMLCanvasElement, { antialias, engineOptions }: E
   return babylonEngine
 }
 
-export default function EngineProvider({ children, antialias, engineOptions }: PropsWithChildren<EngineProviderProps>) {
+export default function EngineProvider({
+  children,
+  antialias,
+  engineOptions,
+  nullEngine,
+}: PropsWithChildren<EngineProviderProps>) {
   const canvas = useCanvas()
 
   const [engine, setEngine] = useState<Engine>()
 
   useEffect(() => {
-    setEngine(createEngine(canvas, { antialias, engineOptions }))
+    if (nullEngine) {
+      setEngine(new NullEngine())
+    } else {
+      setEngine(createEngine(canvas, { antialias, engineOptions }))
+    }
   }, [])
 
   useEffect(() => {

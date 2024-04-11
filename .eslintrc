@@ -28,7 +28,8 @@
     ],
     "import/extensions": "off",
     "sort-keys-fix/sort-keys-fix": "error",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "import/no-extraneous-dependencies": "off"
   },
   "settings": {
     "import/resolver": {
@@ -44,6 +45,8 @@
   },
   "ignorePatterns": [
     "stories",
-    "lib"
+    "lib",
+    "babel.config.cjs",
+    "jest.config.ts"
   ]
 }
