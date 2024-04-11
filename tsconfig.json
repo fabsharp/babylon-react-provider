@@ -9,5 +9,13 @@
     "src",
     "examples",
     "stories"
-  ]
+  ],
+  "compilerOptions": {
+    "types": [
+      "jest",
+       "@testing-library/jest-dom",
+       "@types/jest"
+    ]
+  },
+  
 }
