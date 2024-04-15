@@ -1,4 +1,4 @@
-import { AbstractMesh } from '@babylonjs/core'
+import { AbstractMesh, Nullable, Observer } from '@babylonjs/core'
 import { useState, useEffect } from 'react'
 import useScene from './useScene'
 
@@ -10,16 +10,28 @@ export default function useMeshes() {
       return () => {}
     }
     setMeshes([...scene.meshes])
-    scene.onMeshImportedObservable.add(() => {
-      setMeshes([...scene.meshes])
-    })
-    scene.onMeshRemovedObservable.add(() => {
-      setMeshes([...scene.meshes])
-    })
-    scene.onNewMeshAddedObservable.add(() => {
-      setMeshes([...scene.meshes])
-    })
+
+    const observers: Nullable<Observer<any>>[] = []
+    observers.push(
+      scene.onMeshImportedObservable.add(() => {
+        setMeshes([...scene.meshes])
+      })
+    )
+    observers.push(
+      scene.onMeshRemovedObservable.add(() => {
+        setMeshes([...scene.meshes])
+      })
+    )
+    observers.push(
+      scene.onNewMeshAddedObservable.add(() => {
+        setMeshes([...scene.meshes])
+      })
+    )
+
     return () => {
+      observers.forEach((observer) => {
+        observer?.remove()
+      })
       setMeshes([])
     }
   }, [scene])
