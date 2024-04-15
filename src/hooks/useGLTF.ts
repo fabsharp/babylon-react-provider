@@ -18,9 +18,7 @@ export default function useGLTF(
       const cancel = false
       setLoading(true)
       if (scene.isDisposed) {
-        return () => {
-          console.log('scene is hmr')
-        }
+        return () => {}
       }
       SceneLoader.LoadAssetContainer(
         url,

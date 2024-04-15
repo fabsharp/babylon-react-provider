@@ -10,6 +10,7 @@ export default function LoadGLB() {
       scene.createDefaultCameraOrLight(true, true, true)
       scene.createDefaultEnvironment()
       const [camera] = container.cameras
+      scene.activeCamera?.detachControl()
       // eslint-disable-next-line no-param-reassign
       scene.activeCamera = camera
       scene.activeCamera.attachControl()

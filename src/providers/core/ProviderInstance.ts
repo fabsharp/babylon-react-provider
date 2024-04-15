@@ -39,8 +39,10 @@ export default class ProviderInstance {
 
   static checkInstances() {
     ProviderInstance.instances.forEach((instance, index) => {
+      // eslint-disable-next-line no-console
       console.log(
-        `instance - ${index} : engine.isDisposed = ${instance.engine.isDisposed}, scene.isDisposed = ${instance.scene.isDisposed}`
+        `instance - ${index} : engine.isDisposed = ${instance.engine.isDisposed}, scene.isDisposed = ${instance.scene.isDisposed}`,
+        instance.canvas
       )
     })
   }
