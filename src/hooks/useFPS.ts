@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useScene } from '../providers/SceneProvider'
+import useScene from './useScene'
 
 export default function useFPS(threshold?: number) {
   const scene = useScene()

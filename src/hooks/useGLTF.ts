@@ -1,6 +1,6 @@
 import { AssetContainer, SceneLoader } from '@babylonjs/core'
 import { useEffect, useState } from 'react'
-import { useScene } from '../providers/SceneProvider'
+import useScene from './useScene'
 import '@babylonjs/loaders'
 
 export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContainer: AssetContainer) => void) {

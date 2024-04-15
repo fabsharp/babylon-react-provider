@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
-import { useScene } from '../providers/SceneProvider'
+import { useScene } from '../hooks'
 import '@babylonjs/loaders'
 import FPS from './FPS'
 import useGLTF from '../hooks/useGLTF'

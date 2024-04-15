@@ -1,6 +1,6 @@
 import { AbstractMesh } from '@babylonjs/core'
 import { useState, useEffect } from 'react'
-import { useScene } from '../providers/SceneProvider'
+import useScene from './useScene'
 
 export default function useMeshes() {
   const scene = useScene()

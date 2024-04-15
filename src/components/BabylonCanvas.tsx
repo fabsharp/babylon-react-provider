@@ -1,6 +1,5 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
-import { useCanvas } from '../providers/CanvasProvider'
-import { useEngine } from '../providers/EngineProvider'
+import { useCanvas, useEngine } from '../hooks'
 
 type BabylonCanvasProps = {
   children?: ReactNode | ReactNode[]
