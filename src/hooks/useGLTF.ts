@@ -15,7 +15,7 @@ export default function useGLTF(
 
   useEffect(() => {
     if (url && scene) {
-      const cancel = false
+      let cancel = false
       setLoading(true)
       if (scene.isDisposed) {
         return () => {}
@@ -40,16 +40,12 @@ export default function useGLTF(
           if (event.lengthComputable) {
             setProgressPercent(Math.round((event.loaded * 100) / event.total))
           }
-        },
-        () => {
-          console.log('hmt ?')
         }
       )
 
-      // return () => {
-      //   console.log('CANCEL')
-      //   cancel = true
-      // }
+      return () => {
+        cancel = true
+      }
     }
     return () => {}
   }, [url, scene])

@@ -6,6 +6,7 @@ import { BabylonCanvas, BabylonProvider, FPS } from 'babylon-react-provider'
 
 import { Button, Container } from '@mui/material'
 import LoadGLB from './LoadGLB'
+import Meshes from './Meshes'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -21,16 +22,21 @@ function App() {
     <>
       <Container>
         {mounted && (
-          <BabylonProvider>
-            <Grid container spacing={2}>
-              <Grid item xs={12} lg={12}>
+          <Grid container spacing={2}>
+            <BabylonProvider>
+              <Grid item xs={8} lg={8}>
                 <Item>
                   <BabylonCanvas />
                 </Item>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={4}>
                 <Item>
-                  <LoadGLB />
+                  <Meshes />
+                </Item>
+              </Grid>
+              <Grid item xs={8} lg={8}>
+                <Item>
+                  <LoadGLB url="https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf" />
                 </Item>
               </Grid>
               <Grid item xs={4}>
@@ -38,8 +44,30 @@ function App() {
                   <FPS />
                 </Item>
               </Grid>
-            </Grid>
-          </BabylonProvider>
+            </BabylonProvider>
+            <BabylonProvider>
+              <Grid item xs={8} lg={8}>
+                <Item>
+                  <BabylonCanvas />
+                </Item>
+              </Grid>
+              <Grid item xs={4}>
+                <Item>
+                  <Meshes />
+                </Item>
+              </Grid>
+              <Grid item xs={4} lg={4}>
+                <Item>
+                  <LoadGLB url="https://playground.babylonjs.com/scenes/dummy2.babylon" />
+                </Item>
+              </Grid>
+              <Grid item xs={4}>
+                <Item>
+                  <FPS />
+                </Item>
+              </Grid>
+            </BabylonProvider>
+          </Grid>
         )}
       </Container>
       <Button onClick={() => setMounted(!mounted)}>Unmount</Button>
