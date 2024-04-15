@@ -3,20 +3,17 @@ import { useScene } from '../providers/SceneProvider'
 
 export default function useFPS(threshold?: number) {
   const scene = useScene()
-  const [fps, setFps] = useState(0)
+  const [fps, setFps] = useState(() => scene?.getEngine().getFps() || 0)
 
   useEffect(() => {
-    if (!scene) {
-      return () => {}
-    }
-    const observer = scene.onAfterRenderObservable.add(() => {
+    const observer = scene?.onAfterRenderObservable.add(() => {
       const newFPS = Math.round(scene.getEngine().getFps())
       if (!threshold || Math.abs(newFPS - fps) > threshold) {
         setFps(newFPS)
       }
     })
     return () => {
-      observer.remove()
+      observer?.remove()
     }
   }, [scene])
 
