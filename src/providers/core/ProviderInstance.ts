@@ -11,10 +11,13 @@ export default class ProviderInstance {
 
   #engine: Engine
 
+  static instances: ProviderInstance[] = []
+
   constructor(private options?: BabylonProviderProp) {
     this.#canvas = createCanvas()
     this.#engine = createEngine(options, this.#canvas)
     this.#scene = createScene(this.#engine, options?.sceneOptions)
+    ProviderInstance.instances.push(this)
   }
 
   get canvas() {
@@ -32,5 +35,13 @@ export default class ProviderInstance {
   dispose() {
     this.scene.dispose()
     this.engine.dispose()
+  }
+
+  static checkInstances() {
+    ProviderInstance.instances.forEach((instance, index) => {
+      console.log(
+        `instance - ${index} : engine.isDisposed = ${instance.engine.isDisposed}, scene.isDisposed = ${instance.scene.isDisposed}`
+      )
+    })
   }
 }

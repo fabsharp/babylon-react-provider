@@ -1,9 +1,12 @@
-import { AssetContainer, SceneLoader } from '@babylonjs/core'
+import { AssetContainer, Scene, SceneLoader } from '@babylonjs/core'
 import { useEffect, useState } from 'react'
 import useScene from './useScene'
 import '@babylonjs/loaders'
 
-export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContainer: AssetContainer) => void) {
+export default function useGLTF(
+  url?: string,
+  beforeAddAllToScene?: (assetContainer: AssetContainer, scene: Scene) => void
+) {
   const [loading, setLoading] = useState(false)
   const [assetContainer, setAssetContainer] = useState<AssetContainer>()
   const [progressComputable, setProgressComputable] = useState<boolean>()
@@ -12,10 +15,12 @@ export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContai
 
   useEffect(() => {
     if (url && scene) {
-      let cancel = false
+      const cancel = false
       setLoading(true)
       if (scene.isDisposed) {
-        return () => {}
+        return () => {
+          console.log('scene is hmr')
+        }
       }
       SceneLoader.LoadAssetContainer(
         url,
@@ -26,7 +31,7 @@ export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContai
             return
           }
           if (beforeAddAllToScene) {
-            beforeAddAllToScene(container)
+            beforeAddAllToScene(container, scene)
           }
           container.addAllToScene()
           setLoading(false)
@@ -37,12 +42,16 @@ export default function useGLTF(url?: string, beforeAddAllToScene?: (assetContai
           if (event.lengthComputable) {
             setProgressPercent(Math.round((event.loaded * 100) / event.total))
           }
+        },
+        () => {
+          console.log('hmt ?')
         }
       )
 
-      return () => {
-        cancel = true
-      }
+      // return () => {
+      //   console.log('CANCEL')
+      //   cancel = true
+      // }
     }
     return () => {}
   }, [url, scene])

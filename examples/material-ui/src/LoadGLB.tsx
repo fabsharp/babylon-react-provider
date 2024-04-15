@@ -1,17 +1,21 @@
 import React from 'react'
-import { useScene, useGLTF } from 'babylon-react-provider'
-import { AssetContainer } from '@babylonjs/core'
+import { ProviderInstance, useGLTF } from 'babylon-react-provider'
+import { AssetContainer, Scene } from '@babylonjs/core'
+import { Button } from '@mui/material'
 
 export default function LoadGLB() {
-  const scene = useScene()
-  useGLTF('https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf', (container: AssetContainer) => {
-    scene.createDefaultCameraOrLight(true, true, true)
-    scene.createDefaultEnvironment()
-    const [camera] = container.cameras
-    scene.activeCamera = camera
-    scene.activeCamera.attachControl()
-    scene.getEngine().resize()
-  })
+  useGLTF(
+    'https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf',
+    (container: AssetContainer, scene: Scene) => {
+      scene.createDefaultCameraOrLight(true, true, true)
+      scene.createDefaultEnvironment()
+      const [camera] = container.cameras
+      // eslint-disable-next-line no-param-reassign
+      scene.activeCamera = camera
+      scene.activeCamera.attachControl()
+      scene.getEngine().resize()
+    }
+  )
 
-  return <span>Oui</span>
+  return <Button onClick={() => ProviderInstance.checkInstances()}>check Instances</Button>
 }

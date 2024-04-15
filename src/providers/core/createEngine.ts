@@ -4,11 +4,9 @@ import { BabylonProviderProp } from '../BabylonProviderProps'
 export default function createEngine(engineProviderProps?: BabylonProviderProp, canvas?: HTMLCanvasElement) {
   const defaultOptions: BabylonProviderProp = {
     antialias: true,
-    engineOptions: {},
   }
   const { nullEngine, antialias, engineOptions } = { ...defaultOptions, ...engineProviderProps }
 
-  console.log(engineProviderProps, nullEngine)
   if (nullEngine) {
     return new NullEngine()
   }

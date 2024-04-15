@@ -2,12 +2,18 @@ import React, { PropsWithChildren, useEffect, useState } from 'react'
 import ProviderInstance from './core/ProviderInstance'
 import { BabylonProviderProp } from './BabylonProviderProps'
 
-const BabylonProviderContext = React.createContext<ProviderInstance>({} as ProviderInstance)
+const BabylonProviderContext = React.createContext<ProviderInstance | undefined>(undefined)
 
 export default function BabylonProvider(props: PropsWithChildren<BabylonProviderProp>) {
-  const [instance] = useState<ProviderInstance>(() => new ProviderInstance(props))
+  const [instance, setInstance] = useState<ProviderInstance>()
 
-  useEffect(() => () => instance.dispose(), [])
+  useEffect(() => {
+    const providerInstance = new ProviderInstance(props)
+    setInstance(providerInstance)
+    return () => {
+      providerInstance.dispose()
+    }
+  }, [])
 
   const { children } = props
 

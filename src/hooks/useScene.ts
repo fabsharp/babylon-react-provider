@@ -1,6 +1,15 @@
+import { useEffect, useState } from 'react'
+import { Scene } from '@babylonjs/core'
 import { useBabylonProvider } from '../providers'
 
 export default function useScene() {
   const provider = useBabylonProvider()
-  return provider.scene
+  const [scene, setScene] = useState<Scene>()
+
+  useEffect(() => {
+    if (provider) {
+      setScene(provider.scene)
+    }
+  }, [provider])
+  return scene
 }
