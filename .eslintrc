@@ -47,6 +47,7 @@
     "stories",
     "lib",
     "*.js",
-    "*.cjs"
+    "*.cjs",
+    "vite*.ts"
   ]
 }
