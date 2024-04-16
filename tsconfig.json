@@ -3,7 +3,8 @@
   "exclude": [
     "node_modules",
     "stories",
-    "lib"
+    "lib",
+    "demos"
   ],
   "include": [
     "src",
