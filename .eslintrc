@@ -46,7 +46,7 @@
   "ignorePatterns": [
     "stories",
     "lib",
-    "jest.config.js",
+    "*.js",
     "*.cjs"
   ]
 }

@@ -50,7 +50,7 @@
   },
   "scripts": {
     "preversion": "npm run build",
-    "version": "git add package.json",
+    "version": "node demos/update_demos.js && git add --all",
     "postversion": "git push origin && git push origin --tags",
     "lint": "eslint --ext .ts .",
     "build": "npm run lint && rimraf lib && tsc --project tsconfig.build.json",
