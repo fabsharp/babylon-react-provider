@@ -4,6 +4,9 @@ import createEngine from './createEngine'
 import createScene from './createScene'
 import { BabylonProviderProp } from '../BabylonProviderProps'
 
+/**
+ * @internal
+ */
 export default class ProviderInstance {
   #canvas: HTMLCanvasElement
 

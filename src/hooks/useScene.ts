@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Scene } from '@babylonjs/core'
-import { useBabylonProvider } from '../providers'
+import { useBabylonProvider } from '../providers/BabylonProvider'
 
 /**
  * @category core

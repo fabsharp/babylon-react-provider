@@ -1,25 +1,33 @@
-import React, { ReactNode, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useCanvas, useEngine } from '../hooks'
 
-type BabylonCanvasProps = {
-  children?: ReactNode | ReactNode[]
-  /** CSS properties of the container */
-  style?: React.CSSProperties
-}
-
 /**
- * Container for the rendering ```<canvas>``` used by babylonJS [Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine#constructor) to render.
- *
- * @remarks ```<BabylonProvider>``` require one ```<BabylonCanvas>```
+ * React Element for the rendering ```<canvas>``` used by babylonJS engine to render.
+ * @title
+ * @see {@link BabylonProvider}
  * @example
+ * Wrap your components inside a ```<BabylonProvider>``` and use ```<BabylonCanvas>``` to specify where the rendering will occur.
+ * ```tsx
+ * export default function App() {
+ *  return <Grid>
+ *    <BabylonProvider> // Allow all children to use babylon hooks
+ *      <Grid item xs={8}>
+ *        <Item>
+ *          <BabylonCanvas /> // Rendering Canvas
+ *        </Item>
+ *      </Grid>
+ *      <Grid item xs={4}>
+ *        <Item>
+ *          <MyComponentUsingBabylon /> // Mixed React / Babylon component
+ *        </Item>
+ *      </Grid>
+ *    </BabylonProvider>
+ *  </Grid>
+ * }
  * ```
- * <BabylonProvider>
- *  <Menu/>
- *  <BabylonCanvas/>
- * </BabylonProvider>
- * ```
+ * @param style
  */
-export default function BabylonCanvas({ children, style }: BabylonCanvasProps) {
+export default function BabylonCanvas(style?: React.CSSProperties): React.JSX.Element {
   const container = useRef<HTMLDivElement>(null)
   const engine = useEngine()
   const canvas = useCanvas()
@@ -40,9 +48,5 @@ export default function BabylonCanvas({ children, style }: BabylonCanvasProps) {
       engine?.resize()
     }
   }, [canvas])
-  return (
-    <div style={containerCSS} ref={container}>
-      {children}
-    </div>
-  )
+  return <div style={containerCSS} ref={container} />
 }

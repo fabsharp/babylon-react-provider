@@ -20,4 +20,5 @@ export default function BabylonProvider(props: PropsWithChildren<BabylonProvider
   return <BabylonProviderContext.Provider value={instance}>{children}</BabylonProviderContext.Provider>
 }
 
+/** @internal */
 export const useBabylonProvider = () => React.useContext(BabylonProviderContext)

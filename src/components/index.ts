@@ -1,5 +1,4 @@
 import BabylonCanvas from './BabylonCanvas'
 
-import FPS from './FPS'
-
-export { BabylonCanvas, FPS }
+// eslint-disable-next-line import/prefer-default-export
+export { BabylonCanvas }
