@@ -24,6 +24,7 @@ function App() {
         {mounted && (
           <Grid container spacing={2}>
             <BabylonProvider>
+              {/** test */}
               <Grid item xs={8} lg={8}>
                 <Item>
                   <BabylonCanvas />

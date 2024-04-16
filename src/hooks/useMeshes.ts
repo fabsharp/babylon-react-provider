@@ -2,6 +2,10 @@ import { AbstractMesh, Nullable, Observer } from '@babylonjs/core'
 import { useState, useEffect } from 'react'
 import useScene from './useScene'
 
+/**
+ * @category Mesh
+ * @returns
+ */
 export default function useMeshes() {
   const scene = useScene()
   const [meshes, setMeshes] = useState<Array<AbstractMesh>>([])

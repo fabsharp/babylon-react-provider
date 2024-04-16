@@ -61,7 +61,7 @@ export default function TestComponent() {
         `${progressPercent}%`
       ) : (
         <>
-          <FPS threshold={2} />
+          <FPS />
           fps
         </>
       )}
