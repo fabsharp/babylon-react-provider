@@ -1,7 +1,7 @@
 /** @type {import('typedoc').TypeDocOptions} */
 module.exports = {
   entryPoints: ["./src/index.ts"],
-  out: "github_page",
+  out: "docs",
   externalSymbolLinkMappings: {
     "@babylonjs/core": {
       Engine: 'https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine',
@@ -10,12 +10,11 @@ module.exports = {
       AssetContainer: 'https://doc.babylonjs.com/typedoc/classes/BABYLON.AssetContainer'
     }
   },
-  readme: './doc/index.md',
+  readme: './src/docs/index.md',
   searchInComments: true,
   navigationLinks: {
     Github: "https://github.com/fabsharp/babylon-react-provider"
   },
-  "visibilityFilters": {},
-  includes: './doc',
+  visibilityFilters: {},
   excludeInternal: true
 }
