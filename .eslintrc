@@ -29,7 +29,8 @@
     "import/extensions": "off",
     "sort-keys-fix/sort-keys-fix": "error",
     "react/require-default-props": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "import/resolver": {

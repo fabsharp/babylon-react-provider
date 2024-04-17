@@ -1,6 +1,6 @@
-import React from "react"
-import { List, ListItem } from "@mui/material"
-import { useGLTF, useLoadAssetContainer, useMeshes } from "babylon-react-provider"
+import React, { useEffect, useState } from "react"
+import { List, ListItem, TextField } from "@mui/material"
+import { useGLTF, useLoadAssetContainer, useMesh, useMeshes } from "babylon-react-provider"
 
 
 
@@ -13,9 +13,17 @@ export default function BabylonReactComponent() {
     },
   })
 
-  const meshes = useMeshes()
+  const mesh = useMesh('node2')
+  const [filter, setFilter] = useState<string>()
+  const meshes = useMeshes(filter)
 
-  return <List sx={{ overflow: 'auto', maxHeight: '360px' }}>
-    {meshes.map(mesh => <ListItem key={mesh.uniqueId}>{mesh.name}</ListItem>)}
-  </List>
+  return <>
+    {mesh?.name}
+    <TextField id="outlined-basic" variant="outlined" value={filter} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+      setFilter(event.target.value);
+    }} />
+    <List sx={{ overflow: 'auto', maxHeight: '360px' }}>
+      {meshes.map(mesh => <ListItem key={mesh.uniqueId}>{mesh.name}</ListItem>)}
+    </List>
+  </>
 }

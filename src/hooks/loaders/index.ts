@@ -1,12 +1,7 @@
-import useLoadAssetContainer, {
-  type LoadAssetContainerOptions,
-  type UseLoadAssetContainer,
-} from './useLoadAssetContainer'
+export * from './useGLTF'
 
-import useGLTF from './useGLTF'
+export * from './useOBJ'
 
-import useOBJ from './useOBJ'
+export * from './useSTL'
 
-import useSTL from './useSTL'
-
-export { useLoadAssetContainer, type LoadAssetContainerOptions, type UseLoadAssetContainer, useGLTF, useOBJ, useSTL }
+export * from './useLoadAssetContainer'

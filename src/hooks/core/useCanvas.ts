@@ -5,7 +5,7 @@ import { useBabylonProvider } from '../../providers'
  * @category core
  * @returns
  */
-export default function useCanvas() {
+export function useCanvas() {
   const provider = useBabylonProvider()
   const [canvas, setCanvas] = useState<HTMLCanvasElement>()
   useEffect(() => {

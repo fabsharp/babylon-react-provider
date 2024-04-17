@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react'
-import { AbstractMesh } from '@babylonjs/core'
-import useMeshes from './useMeshes'
+import { useMeshes } from './useMeshes'
 
 /**
  * Get a mesh by name
  * @category scene
  *
- * @param name A reactive string
+ * @param name Filter by name. Accept loose string with simple wildcard matching (ex: node1 | node* | \*de1 | no*1)
  * @returns Babylon mesh
  */
-export default function useMesh(name?: string) {
-  const meshes = useMeshes()
-  const [mesh, setMesh] = useState<AbstractMesh>()
-  useEffect(() => {
-    setMesh(meshes.find((item) => item.name === name))
-  }, [meshes, name])
-  return mesh
+export function useMesh(name?: string) {
+  const meshes = useMeshes(name)
+  return meshes.length >= 1 ? meshes[0] : undefined
 }

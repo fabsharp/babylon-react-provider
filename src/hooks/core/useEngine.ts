@@ -7,7 +7,7 @@ import { useBabylonProvider } from '../../providers'
  * @category core
  * @returns Babylon's engine used by the current ```<BabylonProvider/>```
  */
-export default function useEngine() {
+export function useEngine() {
   const provider = useBabylonProvider()
   const [engine, setEngine] = useState<Engine>()
   useEffect(() => {

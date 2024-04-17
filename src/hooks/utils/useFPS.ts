@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import useScene from '../scene/useScene'
+import { useScene } from '../scene/useScene'
 
 /**
  *
  * @category utils
  */
-export default function useFPS() {
+export function useFPS() {
   const scene = useScene()
   const [fps, setFps] = useState(() => scene?.getEngine().getFps() || 0)
 

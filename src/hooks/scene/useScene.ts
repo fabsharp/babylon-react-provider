@@ -3,9 +3,10 @@ import { Observer, Scene, Nullable } from '@babylonjs/core'
 import { useBabylonProvider } from '../../providers/BabylonProvider'
 
 /**
+ * Get the current Scene
  * @category scene
  */
-export default function useScene() {
+export function useScene() {
   const provider = useBabylonProvider()
   const [scene, setScene] = useState<Scene>()
 

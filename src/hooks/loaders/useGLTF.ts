@@ -1,4 +1,4 @@
-import useLoadAssetContainer, { LoadAssetContainerOptions } from './useLoadAssetContainer'
+import { LoadAssetContainerOptions, useLoadAssetContainer } from './useLoadAssetContainer'
 import '@babylonjs/loaders/glTF'
 
 /**
@@ -7,6 +7,6 @@ import '@babylonjs/loaders/glTF'
  * @param options
  * @category loaders
  */
-export default function useGLTF(url?: string, options?: LoadAssetContainerOptions) {
+export function useGLTF(url?: string, options?: LoadAssetContainerOptions) {
   return useLoadAssetContainer(url, options)
 }

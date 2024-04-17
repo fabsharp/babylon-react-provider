@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Camera, Nullable } from '@babylonjs/core'
-import useScene from './useScene'
+import { useScene } from './useScene'
 
 /**
  * Get the current active camera
  * @category scene
  */
-export default function useActiveCamera() {
+export function useActiveCamera() {
   const scene = useScene()
   const [activeCamera, setActiveCamera] = useState<Nullable<Camera>>()
   useEffect(() => {

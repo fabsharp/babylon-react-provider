@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AbstractMesh, TransformNode, Node } from '@babylonjs/core'
-import useMeshes from './useMeshes'
+import { useMeshes } from './useMeshes'
 
 export type MeshTree = {
   node: TransformNode | AbstractMesh | Node
@@ -25,7 +25,7 @@ const getHierarchy = (node: TransformNode | AbstractMesh | Node): MeshTree => {
  *
  * @category scene
  */
-export default function useMeshesTree() {
+export function useMeshesTree() {
   const meshes = useMeshes()
   const [tree, setTree] = useState<MeshTree[]>([])
   useEffect(() => {

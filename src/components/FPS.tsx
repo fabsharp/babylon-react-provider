@@ -1,5 +1,5 @@
 import React from 'react'
-import useFPS from '../hooks/utils/useFPS'
+import { useFPS } from '../hooks'
 
 export default function FPS() {
   const fps = useFPS()

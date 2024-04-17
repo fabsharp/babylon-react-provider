@@ -2,12 +2,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
-import { useScene } from '../hooks'
-import '@babylonjs/loaders'
+import { useScene, useLoadAssetContainer, useMeshesTree, useMesh, MeshTree } from '../hooks'
 import FPS from './FPS'
-import useLoadAssetContainer from '../hooks/loaders/useLoadAssetContainer'
-import useMeshesTree, { MeshTree } from '../hooks/scene/useMeshesTree'
-import useMesh from '../hooks/scene/useMesh'
 
 export default function TestComponent() {
   const scene = useScene()

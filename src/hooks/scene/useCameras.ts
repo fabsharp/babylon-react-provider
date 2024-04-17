@@ -1,41 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Camera, Nullable, Observer } from '@babylonjs/core'
-import useScene from './useScene'
+import { Camera } from '@babylonjs/core'
+import { useSceneNodes } from './useSceneNodes'
 
 /**
- *
+ * Get all cameras in the scene.
+ * @param names Filter by names. Accept loose string with simple wildcard matching (ex: node1 | node* | *de1 | no*1)
  * @category scene
  */
-export default function useCameras() {
-  const scene = useScene()
-  const [cameras, setCameras] = useState<Camera[]>([])
-  useEffect(() => {
-    if (!scene) {
-      return () => {}
-    }
-    setCameras([...scene.cameras])
-
-    const observers: Nullable<Observer<any>>[] = []
-
-    observers.push(
-      scene.onNewCameraAddedObservable.add(() => {
-        setCameras([...scene.cameras])
-      })
-    )
-
-    observers.push(
-      scene.onCameraRemovedObservable.add(() => {
-        setCameras([...scene.cameras])
-      })
-    )
-
-    return () => {
-      observers.forEach((observer) => {
-        observer?.remove()
-      })
-      setCameras([])
-    }
-  }, [scene])
-
-  return cameras
+export function useCameras(names?: string) {
+  return useSceneNodes<Camera>('cameras', ['onNewCameraAddedObservable', 'onCameraRemovedObservable'], names)
 }

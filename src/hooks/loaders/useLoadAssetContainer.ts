@@ -1,6 +1,6 @@
 import { AssetContainer, Scene, SceneLoader } from '@babylonjs/core'
 import { useEffect, useState } from 'react'
-import useScene from '../scene/useScene'
+import { useScene } from '../scene/useScene'
 import { useBabylonProvider } from '../../providers'
 
 /**
@@ -56,10 +56,7 @@ export type UseLoadAssetContainer = {
  *
  * @category loaders
  */
-export default function useLoadAssetContainer(
-  url?: string,
-  options?: LoadAssetContainerOptions
-): UseLoadAssetContainer {
+export function useLoadAssetContainer(url?: string, options?: LoadAssetContainerOptions): UseLoadAssetContainer {
   const [loading, setLoading] = useState(false)
   const [assetContainer, setAssetContainer] = useState<AssetContainer>()
   const [progressComputable, setProgressComputable] = useState<boolean>()
