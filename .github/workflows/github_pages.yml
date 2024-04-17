@@ -2,7 +2,7 @@ name: "Typedoc to github_pages"
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 permissions:
   contents: read
