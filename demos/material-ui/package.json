@@ -16,7 +16,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
     "@vitejs/plugin-react": "^4.2.1",
-    "babylon-react-provider": "0.0.4",
+    "babylon-react-provider": "0.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite": "^5.2.7"
