@@ -1015,9 +1015,9 @@
     to-fast-properties "^2.0.0"
 
 "@babylonjs/core@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.npmjs.org/@babylonjs/core/-/core-7.1.0.tgz"
-  integrity sha512-nz1CmflajMPnjdnwYrj72s4D/Q8IkOW4DBbwMfUNLFSCondfFXS3sZBgHeCAHpimR5n4e27YwvJ66MkQJsSraQ==
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-7.2.2.tgz#75d94fec3d87ecfc80b4afedd21b3cc022863345"
+  integrity sha512-V3u6/4AlODWSM7v85BzJiHEyJCYeXmgW3lpEPTWIAVySoL/bi+3xfSOPd2HeVwqFaMneumkIZ+A0ZpzmmKAFVw==
 
 "@babylonjs/loaders@^7.1.0":
   version "7.1.0"

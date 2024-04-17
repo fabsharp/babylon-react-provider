@@ -20,6 +20,7 @@ A collection of React hooks and utilities to implement mixed Babylon/React compo
     - ...more
   - Mounting, unmounting and disposing ressources 
 - Multiple instances / contextes
+- Hot Module Reloading
 - ```<StrictMode>```
 - ```<Suspense>```
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 

@@ -48,6 +48,7 @@
     "lib",
     "*.js",
     "*.cjs",
-    "vite*.ts"
+    "vite*.ts",
+    "demos"
   ]
 }

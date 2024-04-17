@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useCanvas, useEngine } from '../hooks'
+import { useBabylonProvider } from '../providers'
 
 /**
  * React Element for the rendering ```<canvas>``` used by babylonJS engine to render.
@@ -29,8 +29,7 @@ import { useCanvas, useEngine } from '../hooks'
  */
 export default function BabylonCanvas(style?: React.CSSProperties): React.JSX.Element {
   const container = useRef<HTMLDivElement>(null)
-  const engine = useEngine()
-  const canvas = useCanvas()
+  const provider = useBabylonProvider()
 
   const containerCSS: React.CSSProperties =
     style ??
@@ -43,10 +42,11 @@ export default function BabylonCanvas(style?: React.CSSProperties): React.JSX.El
     }
 
   useEffect(() => {
-    if (canvas) {
-      container.current?.prepend(canvas)
-      engine?.resize()
+    if (provider) {
+      container.current?.prepend(provider.canvas)
+      provider.onCanvasMounted.notifyObservers(null)
+      provider.engine.resize()
     }
-  }, [canvas])
+  }, [provider])
   return <div style={containerCSS} ref={container} />
 }

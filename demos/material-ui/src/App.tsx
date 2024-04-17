@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
-import { BabylonCanvas, BabylonProvider, FPS } from 'babylon-react-provider'
+import { BabylonCanvas, BabylonProvider, useGLTF } from 'babylon-react-provider'
 
-import { Button, Container } from '@mui/material'
-import LoadGLB from './LoadGLB'
-import Meshes from './Meshes'
+import { Button, Container, Divider } from '@mui/material'
+import BabylonReactComponent from './BabylonReactComponent'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,61 +16,28 @@ const Item = styled(Paper)(({ theme }) => ({
 }))
 
 function App() {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(true)
   return (
     <>
       <Container>
+      <Button variant="contained" size='large' color='success' onClick={() => setMounted(!mounted)}>{mounted ? 'Unmount Babylon React Provider' : 'Mount'}</Button>
         {mounted && (
           <Grid container spacing={2}>
             <BabylonProvider>
-              {/** test */}
               <Grid item xs={8} lg={8}>
                 <Item>
                   <BabylonCanvas />
-                </Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item>
-                  <Meshes />
-                </Item>
-              </Grid>
-              <Grid item xs={8} lg={8}>
-                <Item>
-                  <LoadGLB url="https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf" />
-                </Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item>
-                  <FPS />
-                </Item>
-              </Grid>
-            </BabylonProvider>
-            <BabylonProvider>
-              <Grid item xs={8} lg={8}>
-                <Item>
-                  <BabylonCanvas />
-                </Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item>
-                  <Meshes />
                 </Item>
               </Grid>
               <Grid item xs={4} lg={4}>
                 <Item>
-                  <LoadGLB url="https://playground.babylonjs.com/scenes/dummy2.babylon" />
-                </Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item>
-                  <FPS />
+                <BabylonReactComponent/>
                 </Item>
               </Grid>
             </BabylonProvider>
           </Grid>
         )}
       </Container>
-      <Button onClick={() => setMounted(!mounted)}>Unmount</Button>
     </>
   )
 }

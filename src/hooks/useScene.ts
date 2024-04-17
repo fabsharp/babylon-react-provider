@@ -12,8 +12,18 @@ export default function useScene() {
 
   useEffect(() => {
     if (provider) {
-      setScene(provider.scene)
+      if (provider.isCanvasMounted) {
+        setScene(provider.scene)
+      } else {
+        const onCanvasMounted = provider.onCanvasMounted.add(() => {
+          setScene(provider.scene)
+        })
+        return () => {
+          onCanvasMounted.remove()
+        }
+      }
     }
+    return () => {}
   }, [provider])
   return scene
 }

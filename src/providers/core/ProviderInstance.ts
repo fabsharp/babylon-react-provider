@@ -1,4 +1,4 @@
-import { Engine, Scene } from '@babylonjs/core'
+import { Engine, Observable, Scene } from '@babylonjs/core'
 import createCanvas from './createCanvas'
 import createEngine from './createEngine'
 import createScene from './createScene'
@@ -16,11 +16,29 @@ export default class ProviderInstance {
 
   static instances: ProviderInstance[] = []
 
+  onCanvasMounted = new Observable()
+
+  #id = 0
+
+  #isCanvasMounted = false
+
   constructor(private options?: BabylonProviderProp) {
     this.#canvas = createCanvas()
     this.#engine = createEngine(options, this.#canvas)
     this.#scene = createScene(this.#engine, options?.sceneOptions)
+    this.#id = ProviderInstance.instances.length
     ProviderInstance.instances.push(this)
+    this.onCanvasMounted.addOnce(() => {
+      this.#isCanvasMounted = true
+    })
+  }
+
+  get isCanvasMounted() {
+    return this.#isCanvasMounted
+  }
+
+  get id() {
+    return this.#id
   }
 
   get canvas() {
