@@ -1,6 +1,6 @@
 # Babylon React Provider
 
-A collection of React hooks and utilities for Babylon. Designed to be easily compatible with **React UI Components Libraries**. 
+A collection of React hooks and utilities to implement mixed Babylon/React components. Designed to be easily compatible with **React UI Components Libraries**. 
 
 ## :beginner: Documentation
 
