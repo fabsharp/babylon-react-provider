@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
       - run: npm install --legacy-peer-deps
       # Generate your TypeDoc documentation
-      - run: npm run typedoc
+      - run: npm run doc
       # https://github.com/actions/upload-pages-artifact
       - uses: actions/upload-pages-artifact@v2
         with:
