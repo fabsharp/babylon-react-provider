@@ -5,7 +5,7 @@ import createScene from './createScene'
 import { BabylonProviderProp } from '../BabylonProviderProps'
 
 /**
- * @internal
+ * @category core
  */
 export default class ProviderInstance {
   #canvas: HTMLCanvasElement
@@ -17,6 +17,8 @@ export default class ProviderInstance {
   static instances: ProviderInstance[] = []
 
   onCanvasMounted = new Observable()
+
+  onSceneReset = new Observable()
 
   #id = 0
 
@@ -31,6 +33,12 @@ export default class ProviderInstance {
     this.onCanvasMounted.addOnce(() => {
       this.#isCanvasMounted = true
     })
+  }
+
+  resetScene() {
+    this.#scene.dispose()
+    this.#scene = createScene(this.#engine, this.options?.sceneOptions)
+    this.onSceneReset.notifyObservers(null)
   }
 
   get isCanvasMounted() {

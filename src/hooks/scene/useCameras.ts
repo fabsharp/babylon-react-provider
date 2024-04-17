@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { Camera, Nullable, Observer } from '@babylonjs/core'
 import useScene from './useScene'
 
+/**
+ *
+ * @category scene
+ */
 export default function useCameras() {
   const scene = useScene()
   const [cameras, setCameras] = useState<Camera[]>([])

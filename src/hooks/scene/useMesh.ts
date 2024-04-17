@@ -4,7 +4,7 @@ import useMeshes from './useMeshes'
 
 /**
  * Get a mesh by name
- * @category Mesh
+ * @category scene
  *
  * @param name A reactive string
  * @returns Babylon mesh

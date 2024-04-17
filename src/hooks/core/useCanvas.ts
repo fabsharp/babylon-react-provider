@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useBabylonProvider } from '../providers'
+import { useBabylonProvider } from '../../providers'
 
 /**
  * @category core

@@ -2,20 +2,20 @@
  * Yo c'est un test
  */
 
-import useFPS from './useFPS'
+import useFPS from './utils/useFPS'
 
-import useGLTF from './useGLTF'
+import useMesh from './scene/useMesh'
 
-import useMesh from './useMesh'
+import useMeshes from './scene/useMeshes'
 
-import useMeshes from './useMeshes'
+import useMeshesTree from './scene/useMeshesTree'
 
-import useMeshesTree from './useMeshesTree'
+import useScene from './scene/useScene'
 
-import useScene from './useScene'
+import useCanvas from './core/useCanvas'
 
-import useCanvas from './useCanvas'
+import useEngine from './core/useEngine'
 
-import useEngine from './useEngine'
+export * from './loaders'
 
-export { useFPS, useGLTF, useMesh, useMeshes, useMeshesTree, useScene, useCanvas, useEngine }
+export { useFPS, useMesh, useMeshes, useMeshesTree, useScene, useCanvas, useEngine }

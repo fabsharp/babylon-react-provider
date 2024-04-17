@@ -4,7 +4,7 @@ import useScene from './useScene'
 
 /**
  * Get the current active camera
- * @returns
+ * @category scene
  */
 export default function useActiveCamera() {
   const scene = useScene()

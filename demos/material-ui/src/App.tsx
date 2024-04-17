@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
-import { BabylonCanvas, BabylonProvider, useGLTF } from 'babylon-react-provider'
+import { BabylonCanvas, BabylonProvider } from 'babylon-react-provider'
 
 import { Button, Container, Divider } from '@mui/material'
 import BabylonReactComponent from './BabylonReactComponent'
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

@@ -4,6 +4,9 @@ import { BabylonProviderProp } from './BabylonProviderProps'
 
 const BabylonProviderContext = React.createContext<ProviderInstance | undefined>(undefined)
 
+/**
+ * @category components
+ */
 export default function BabylonProvider(props: PropsWithChildren<BabylonProviderProp>) {
   const [instance, setInstance] = useState<ProviderInstance>()
 
@@ -20,5 +23,8 @@ export default function BabylonProvider(props: PropsWithChildren<BabylonProvider
   return <BabylonProviderContext.Provider value={instance}>{children}</BabylonProviderContext.Provider>
 }
 
-/** @internal */
+/**
+ *
+ * @category core
+ */
 export const useBabylonProvider = () => React.useContext(BabylonProviderContext)

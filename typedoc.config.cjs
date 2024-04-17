@@ -13,8 +13,14 @@ module.exports = {
   readme: './src/index.md',
   searchInComments: true,
   navigationLinks: {
-    Github: "https://github.com/fabsharp/babylon-react-provider"
+    Github: "https://github.com/fabsharp/babylon-react-provider",
+    "All Demos": "https://github.com/fabsharp/babylon-react-provider/tree/master/demos"
   },
   visibilityFilters: {},
-  excludeInternal: true
+  excludeInternal: true,
+  includeVersion: true,
+  navigation: {
+    includeCategories: true,
+    fullTree: true
+  },
 }

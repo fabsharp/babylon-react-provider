@@ -21,6 +21,10 @@ const getHierarchy = (node: TransformNode | AbstractMesh | Node): MeshTree => {
   }
 }
 
+/**
+ *
+ * @category scene
+ */
 export default function useMeshesTree() {
   const meshes = useMeshes()
   const [tree, setTree] = useState<MeshTree[]>([])

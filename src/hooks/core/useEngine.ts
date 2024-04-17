@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Engine } from '@babylonjs/core'
-import { useBabylonProvider } from '../providers'
+import { useBabylonProvider } from '../../providers'
 
 /**
  * Get the Babylon's Engine used by the current ```<BabylonProvider/>```

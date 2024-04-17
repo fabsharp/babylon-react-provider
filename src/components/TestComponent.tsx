@@ -5,18 +5,18 @@ import React, { useEffect, useState } from 'react'
 import { useScene } from '../hooks'
 import '@babylonjs/loaders'
 import FPS from './FPS'
-import useGLTF from '../hooks/useGLTF'
-import useMeshesTree, { MeshTree } from '../hooks/useMeshesTree'
-import useMesh from '../hooks/useMesh'
+import useLoadAssetContainer from '../hooks/loaders/useLoadAssetContainer'
+import useMeshesTree, { MeshTree } from '../hooks/scene/useMeshesTree'
+import useMesh from '../hooks/scene/useMesh'
 
 export default function TestComponent() {
   const scene = useScene()
-  const { loading, progressPercent, assetContainer } = useGLTF(
-    'https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf',
-    () => {
-      scene?.createDefaultCameraOrLight(true, true, true)
-      scene?.createDefaultEnvironment()
-    }
+  const { loading, progressPercent, assetContainer } = useLoadAssetContainer(
+    'https://playground.babylonjs.com/scenes/Buggy/glTF-Draco/Buggy.gltf'
+    // () => {
+    //   scene?.createDefaultCameraOrLight(true, true, true)
+    //   scene?.createDefaultEnvironment()
+    // }
   )
   const meshesTree = useMeshesTree()
   const [selected, setSelected] = useState<string>()

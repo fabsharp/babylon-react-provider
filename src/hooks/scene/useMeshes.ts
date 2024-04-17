@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import useScene from './useScene'
 
 /**
- * @category Mesh
+ * @category scene
  * @returns
  */
 export default function useMeshes() {

@@ -26,6 +26,7 @@ import { useBabylonProvider } from '../providers'
  * }
  * ```
  * @param style
+ * @category components
  */
 export default function BabylonCanvas(style?: React.CSSProperties): React.JSX.Element {
   const container = useRef<HTMLDivElement>(null)
