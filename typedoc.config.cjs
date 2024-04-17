@@ -10,7 +10,7 @@ module.exports = {
       AssetContainer: 'https://doc.babylonjs.com/typedoc/classes/BABYLON.AssetContainer'
     }
   },
-  readme: './src/docs/index.md',
+  readme: './src/index.md',
   searchInComments: true,
   navigationLinks: {
     Github: "https://github.com/fabsharp/babylon-react-provider"
