@@ -11,6 +11,7 @@ export default function BabylonReactComponent() {
       scene.activeCamera = assetContainer.cameras[0]
       scene.activeCamera.attachControl()
     },
+    resetScene: true
   })
 
   const mesh = useMesh('node2')

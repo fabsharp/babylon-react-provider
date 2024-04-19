@@ -10,11 +10,11 @@ module.exports = {
       AssetContainer: 'https://doc.babylonjs.com/typedoc/classes/BABYLON.AssetContainer'
     }
   },
-  readme: './src/index.md',
+  readme: './src/doc/index.md',
   searchInComments: true,
   navigationLinks: {
+    "List of Demos & Examples": "https://github.com/fabsharp/babylon-react-provider/tree/master/demos",
     Github: "https://github.com/fabsharp/babylon-react-provider",
-    "All Demos": "https://github.com/fabsharp/babylon-react-provider/tree/master/demos"
   },
   visibilityFilters: {},
   excludeInternal: true,
@@ -23,4 +23,5 @@ module.exports = {
     includeCategories: true,
     fullTree: true
   },
+  includes: ['src/doc']
 }

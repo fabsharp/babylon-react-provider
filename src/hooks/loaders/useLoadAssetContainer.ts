@@ -1,6 +1,5 @@
 import { AssetContainer, Scene, SceneLoader } from '@babylonjs/core'
 import { useEffect, useState } from 'react'
-import { useScene } from '../scene/useScene'
 import { useBabylonProvider } from '../../providers'
 
 /**
@@ -61,29 +60,26 @@ export function useLoadAssetContainer(url?: string, options?: LoadAssetContainer
   const [assetContainer, setAssetContainer] = useState<AssetContainer>()
   const [progressComputable, setProgressComputable] = useState<boolean>()
   const [progressPercent, setProgressPercent] = useState<number>(0)
-  const scene = useScene()
   const provider = useBabylonProvider()
 
   useEffect(() => {
-    if (url && scene) {
+    if (url && provider) {
       let cancel = false
       setLoading(true)
-      if (scene.isDisposed) {
-        return () => {}
+      if (options?.resetScene) {
+        provider?.resetScene()
       }
       SceneLoader.LoadAssetContainer(
         url,
         undefined,
-        scene,
+        provider.scene,
         (container: AssetContainer) => {
           if (cancel) {
             return
           }
-          if (options?.resetScene) {
-            provider?.resetScene()
-          }
+
           if (options?.beforeAddAllToScene) {
-            options.beforeAddAllToScene(container, scene)
+            options.beforeAddAllToScene(container, provider.scene)
           }
           container.addAllToScene()
           setLoading(false)
@@ -102,7 +98,7 @@ export function useLoadAssetContainer(url?: string, options?: LoadAssetContainer
       }
     }
     return () => {}
-  }, [url, scene])
+  }, [url, provider])
 
   return { assetContainer, loading, progressComputable, progressPercent }
 }

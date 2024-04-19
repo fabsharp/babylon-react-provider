@@ -2,4 +2,6 @@ import BabylonProvider, { useBabylonProvider } from './BabylonProvider'
 
 import ProviderInstance from './core/ProviderInstance'
 
-export { BabylonProvider, useBabylonProvider, ProviderInstance }
+import { type BabylonProviderProp } from './BabylonProviderProps'
+
+export { BabylonProvider, useBabylonProvider, ProviderInstance, BabylonProviderProp }

@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Container>
-      <Button variant="contained" size='large' color='success' onClick={() => setMounted(!mounted)}>{mounted ? 'Unmount Babylon React Provider' : 'Mount'}</Button>
+        <Button variant="contained" size='large' color='success' onClick={() => setMounted(!mounted)}>{mounted ? 'Unmount Babylon React Provider' : 'Mount'}</Button>
         {mounted && (
           <Grid container spacing={2}>
             <BabylonProvider>
@@ -32,7 +32,7 @@ function App() {
               </Grid>
               <Grid item xs={4} lg={4}>
                 <Item>
-                <BabylonReactComponent/>
+                  <BabylonReactComponent />
                 </Item>
               </Grid>
             </BabylonProvider>
