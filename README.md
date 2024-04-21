@@ -1,9 +1,11 @@
 # Babylon React Provider
 
-Plug your BabylonJS scenes inside a React UI. Designed for application with mixed React/BabylonJS components to be easily compatible with **React UI Components Libraries** like material-ui, chakra, bootstrap, etc. 
+Plug your BabylonJS scenes inside a React UI. 
+
+Designed for application with mixed React/BabylonJS components to be easily compatible with **React UI Components Libraries** like material-ui, chakra, bootstrap, etc. 
 
 ## Why
-When you want to use Babylon inside a React UI you will have to adress some challenges like creating a context to host the engine, mount/unmount the rendering ```<canvas>```, use states to access the scene, dispose ressources, ```<StrictMode>```, react-router, ```<Suspense>``` etc. 
+When you want to use Babylon inside a React UI you have to adress some challenges like creating a context to host the engine, mount/unmount the rendering ```<canvas>```, use states to access the scene, dispose ressources, ```<StrictMode>```, react-router, ```<Suspense>``` etc. 
 
 **Babylon React Provider give you a solid foundation for all this tasks through fine-crafting & well-tested components.**
 
