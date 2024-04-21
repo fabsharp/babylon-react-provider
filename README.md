@@ -11,7 +11,7 @@ When you want to use Babylon inside a React UI you have to adress some challenge
 
 Remark :
 - Babylon React provider is designed to be used with the _'vanilla' Babylon API_  
-- If you want to use a _Babylon React like declarative syntax_ you should use the excellent library [react-babylonjs](https://github.com/brianzinn/react-babylonjs)
+- If you want to use a _Babylon React like declarative syntax_ you should use the excellent library [react-babylonjs]()
 
 
 
