@@ -11,14 +11,18 @@ When you want to use Babylon inside a React UI you have to adress some challenge
 
 Remark : Babylon React provider is designed to be used with the _'vanilla' Babylon API_. If you want to use instead a _Babylon React like declarative syntax_ you should use the excellent library [react-babylonjs]()
 
-## :beginner: Documentation
+## How
+```npm install babylon-react-provider```
 
-## :tv: Online demos
-- Full list of available demos
-- Featurings 
-  - [Material UI]() 
-  - [Chakra UI]() 
-  - [Headless UI]()
+1. Wrap ```<BabylonProvider>``` at the top level of your components.
+
+2. Use ```<BabylonCanvas>``` to set the rendering canvas in the document.
+
+3. Use custom hooks to create mixed Babylon/React components. 
+
+[Demos]()
+
+[Custom Hook API]()
 
 ## :dagger: Features
 - Create mixed Babylon / React components
@@ -32,22 +36,8 @@ Remark : Babylon React provider is designed to be used with the _'vanilla' Babyl
 - Hot Module Reloading
 - ```<StrictMode>```
 - ```<Suspense>```
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 
-- [React router](https://github.com/remix-run/react-router)
+- React Testing Library 
+- React router
 
-## :sparkles: Usage
-```tsx
-function Demo() {
-  useGLF('')
-  const meshes = useMeshes()
 
-  return <ul>
-    { meshes.map(mesh => (<li>{mesh.name}</li>)) }
-  </ul>
-}
-```
 
-## :construction: Install
-```console 
-npm install babylon-react-provider
-```
