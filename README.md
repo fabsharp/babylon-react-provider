@@ -24,13 +24,13 @@ Remark : Babylon React provider is designed to be used with the _'vanilla' Babyl
 
 [Custom Hook API]()
 
-## :dagger: Features
+## Features
 - Create mixed Babylon / React components
   - Custom hooks to build babylon application
     - useGLTF
     - useMesh 
     - useMaterial
-    - ...more
+    - [...more]()
   - Mounting, unmounting and disposing ressources 
 - Multiple instances / contextes
 - Hot Module Reloading
