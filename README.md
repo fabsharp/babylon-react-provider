@@ -8,7 +8,7 @@ When you want to use Babylon inside a React UI you will have to adress some chal
 Babylon React Provider give you a solid foundation for all this tasks through fine-crafting & well-tested components. 
 
 Remark :
-- Babylon React provider allow you to easily plug Babylon's scenes inside a React context using the _vanilla Babylon API_  
+- Babylon React provider is designed to be used with the _'vanilla' Babylon API_  
 - If you want to use a _Babylon React like declarative syntax_ you should use the excellent library [react-babylonjs](https://github.com/brianzinn/react-babylonjs)
 
 
